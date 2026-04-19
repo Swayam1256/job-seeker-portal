@@ -105,16 +105,19 @@ export const getEmployerApplications = async (req, res) => {
 export const deleteJob = async (req, res) => {
   try {
     const job = await Job.findById(req.params.id);
-    if (!job) return res.status(404).json({ message: "Job not found" });
-    if (job.postedBy.toString() !== req.user.id)
-      return res.status(403).json({ message: "Not allowed" });
 
-    await job.remove();
-    // Optional: Remove related applications
+    if (!job) return res.status(404).json({ message: "Job not found" });
+
+    if (job.postedBy.toString() !== req.user.id) {
+      return res.status(403).json({ message: "Not allowed" });
+    }
+
+    await Job.findByIdAndDelete(req.params.id);
     await Application.deleteMany({ job: req.params.id });
 
-    res.json({ message: "Job deleted" });
+    res.json({ message: "Job deleted successfully" });
   } catch (err) {
+    console.log(err);
     res.status(500).json({ message: err.message });
   }
 };
