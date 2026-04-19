@@ -146,12 +146,7 @@ export default function EmployerDashboard() {
           <List /> Applications
         </button>
 
-        <button
-          onClick={fetchJobs}
-          className="mt-6 flex items-center gap-3 px-4 py-3 w-full rounded-xl border hover:shadow"
-        >
-          <Users className="text-indigo-600" /> Refresh
-        </button>
+        
       </aside>
 
       {/* ================= MAIN ================= */}
