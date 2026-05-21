@@ -29,8 +29,10 @@ router.get(
 router.delete("/:id", protect, isEmployer, deleteJob);
 
 // Seeker routes
-router.get("/:id", getJobById);
+
 router.post("/:id/apply", protect, isSeeker, applyToJob);
 router.get("/applications/me", protect, isSeeker, getMyApplications);
+
+router.get("/:id", getJobById);
 
 export default router;
