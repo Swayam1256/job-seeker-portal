@@ -24,7 +24,6 @@ fs.mkdirSync(photosDir, { recursive: true });
 app.use(
   cors({
     origin: [
-      "http://localhost:5173",
       "https://job-seeker-portal-six.vercel.app",
     ],
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
