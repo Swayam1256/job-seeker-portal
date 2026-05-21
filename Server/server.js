@@ -39,6 +39,10 @@ app.use("/uploads", express.static(path.join(process.cwd(), "uploads")));
 // DB connect
 connectDB();
 
+app.get("/", (req, res) => {
+  res.send("Job Seeker API Running Successfully 🚀");
+});
+
 // routes
 app.use("/api/auth", authRoutes);
 app.use("/api/jobs", jobRoutes);
