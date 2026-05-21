@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api", 
+  baseURL: "https://job-seeker-portal-ef92.onrender.com", 
+  withCredentials: true,
 });
 
 export default API;
