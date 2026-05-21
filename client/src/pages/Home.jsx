@@ -28,7 +28,7 @@ const Home = () => {
                 Find Your{" "}
                 <span className="text-indigo-600">Dream Job</span>
                 <br className="hidden sm:block" />
-                With Confidence
+                  With Confidence
               </h1>
 
               {/* DESCRIPTION */}
