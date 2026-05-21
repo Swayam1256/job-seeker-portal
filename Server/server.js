@@ -43,6 +43,13 @@ app.get("/", (req, res) => {
   res.send("Job Seeker API Running Successfully 🚀");
 });
 
+app.get("/api", (req, res) => {
+  res.json({
+    success: true,
+    message: "JobSeeker API is running successfully 🚀",
+  });
+});
+
 // routes
 app.use("/api/auth", authRoutes);
 console.log("JOB ROUTES LOADED");
