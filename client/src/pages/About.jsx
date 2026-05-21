@@ -6,49 +6,50 @@ const features = [
   {
     icon: Briefcase,
     title: "Smart Job Matching",
-    desc: "Find jobs that perfectly match your skills, experience, and career goals."
+    desc: "Find jobs that perfectly match your skills, experience, and career goals.",
   },
   {
     icon: Users,
     title: "Employer-Friendly Hiring",
-    desc: "Employers can post jobs, manage applications, and hire talent effortlessly."
+    desc: "Employers can post jobs, manage applications, and hire talent effortlessly.",
   },
   {
     icon: ShieldCheck,
     title: "Secure & Transparent",
-    desc: "Verified users, secure authentication, and real-time application tracking."
+    desc: "Verified users, secure authentication, and real-time application tracking.",
   },
   {
     icon: Rocket,
     title: "Career Growth",
-    desc: "Not just jobs — we help you build a successful long-term career."
-  }
+    desc: "Not just jobs — we help you build a successful long-term career.",
+  },
 ];
 
 const About = () => {
   return (
-    <section className="pt-24 pb-20 bg-linear-to-br from-indigo-50 to-blue-100">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="pt-20 md:pt-24 pb-16 md:pb-20 bg-linear-to-br from-indigo-50 to-blue-100 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
-        {/* SEO Heading */}
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-14"
+          className="text-center mb-12 md:mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
             About <span className="text-indigo-600">JobSeeker</span>
           </h1>
-          <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-700">
+
+          <p className="mt-4 max-w-3xl mx-auto text-base sm:text-lg text-gray-700 leading-relaxed px-2">
             JobSeeker is a modern job portal connecting talented professionals
             with trusted employers — faster, smarter, and more transparently.
           </p>
         </motion.div>
 
         {/* Main Content */}
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center mb-14 md:mb-20">
 
           {/* Left Text */}
           <motion.div
@@ -56,17 +57,20 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="order-2 lg:order-1"
           >
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 text-center lg:text-left">
               Your Career, Simplified
             </h2>
-            <p className="text-gray-700 leading-relaxed">
+
+            <p className="text-gray-700 leading-relaxed text-sm sm:text-base text-center lg:text-left">
               JobSeeker was built to remove the confusion and frustration from
               hiring and job searching. Whether you’re a job seeker looking for
               the right opportunity or an employer searching for top talent,
               our platform provides everything you need in one place.
             </p>
-            <p className="mt-4 text-gray-700 leading-relaxed">
+
+            <p className="mt-4 text-gray-700 leading-relaxed text-sm sm:text-base text-center lg:text-left">
               We focus on simplicity, transparency, and efficiency — so you can
               focus on what truly matters: your future.
             </p>
@@ -78,19 +82,19 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="flex justify-center"
+            className="flex justify-center order-1 lg:order-2"
           >
             <img
               src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80"
               alt="Team collaboration"
-              className="rounded-2xl shadow-2xl max-w-md w-full"
+              className="rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-md lg:max-w-lg object-cover"
               loading="lazy"
             />
           </motion.div>
         </div>
 
         {/* Features */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 sm:gap-6">
           {features.map((item, index) => (
             <motion.div
               key={index}
@@ -98,13 +102,15 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.15 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition"
+              className="bg-white rounded-2xl shadow-md p-5 sm:p-6 hover:shadow-xl transition duration-300"
             >
               <item.icon className="w-10 h-10 text-indigo-600 mb-4" />
+
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 {item.title}
               </h3>
-              <p className="text-gray-600 text-sm">
+
+              <p className="text-gray-600 text-sm leading-relaxed">
                 {item.desc}
               </p>
             </motion.div>
@@ -117,16 +123,20 @@ const About = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mt-20 text-center"
+          className="mt-16 md:mt-20 text-center px-2"
         >
-          <h3 className="text-2xl font-bold text-gray-900">
+          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">
             Ready to Shape Your Future?
           </h3>
-          <p className="mt-2 text-gray-700">
+
+          <p className="mt-3 text-gray-700 text-sm sm:text-base max-w-2xl mx-auto">
             Join JobSeeker today and take the next step in your career journey.
           </p>
-        </motion.div>
 
+          <button className="mt-6 bg-indigo-600 hover:bg-indigo-700 text-white px-6 sm:px-8 py-3 rounded-xl font-semibold shadow-lg transition duration-300">
+            Get Started
+          </button>
+        </motion.div>
       </div>
     </section>
   );

@@ -16,11 +16,14 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!name || !email || !password)
+
+    if (!name || !email || !password) {
       return toast.error("All fields are required");
+    }
 
     try {
       setLoading(true);
+
       const res = await api.post("/auth/register", {
         name,
         email,
@@ -30,6 +33,7 @@ const Signup = () => {
 
       saveToken(res.data.token);
       setUser(res.data.user);
+
       toast.success("Account created successfully!");
       navigate("/");
     } catch (error) {
@@ -40,68 +44,85 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-indigo-100 via-white to-purple-100 px-4">
-      <div className="w-full max-w-md bg-white/80 backdrop-blur-xl rounded-3xl shadow-xl border border-white/40 p-8 sm:p-10">
+    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-indigo-100 via-white to-purple-100 px-4 py-10">
+      <div className="w-full max-w-md bg-white/80 backdrop-blur-xl rounded-3xl shadow-xl border border-white/40 p-6 sm:p-8 md:p-10">
 
         {/* HEADER */}
-        <div className="text-center mb-8">
-          <h2 className="text-4xl font-extrabold text-gray-900">
+        <div className="text-center mb-6 sm:mb-8">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight">
             Create Account ✨
           </h2>
-          <p className="text-gray-600 mt-2 text-sm">
+
+          <p className="text-gray-600 mt-2 text-sm sm:text-base">
             Join JobSeeker and unlock new opportunities
           </p>
         </div>
 
         {/* FORM */}
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
 
           {/* NAME */}
           <div className="relative">
-            <User className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+            <User
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
+              size={18}
+            />
+
             <input
               type="text"
               placeholder="Full name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-gray-200 bg-white/70 focus:ring-2 focus:ring-indigo-500 focus:outline-none transition"
+              className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 bg-white/70 focus:ring-2 focus:ring-indigo-500 focus:outline-none transition text-sm sm:text-base"
               required
             />
           </div>
 
           {/* EMAIL */}
           <div className="relative">
-            <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+            <Mail
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
+              size={18}
+            />
+
             <input
               type="email"
               placeholder="Email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-gray-200 bg-white/70 focus:ring-2 focus:ring-indigo-500 focus:outline-none transition"
+              className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 bg-white/70 focus:ring-2 focus:ring-indigo-500 focus:outline-none transition text-sm sm:text-base"
               required
             />
           </div>
 
           {/* PASSWORD */}
           <div className="relative">
-            <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+            <Lock
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
+              size={18}
+            />
+
             <input
               type="password"
               placeholder="Create password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-gray-200 bg-white/70 focus:ring-2 focus:ring-indigo-500 focus:outline-none transition"
+              className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 bg-white/70 focus:ring-2 focus:ring-indigo-500 focus:outline-none transition text-sm sm:text-base"
               required
             />
           </div>
 
           {/* ROLE */}
           <div className="relative">
-            <Briefcase className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+            <Briefcase
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"
+              size={18}
+            />
+
             <select
               value={role}
               onChange={(e) => setRole(e.target.value)}
-              className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-gray-200 bg-white/70 focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+              className="w-full pl-11 pr-4 py-3 rounded-xl border border-gray-200 bg-white/70 focus:ring-2 focus:ring-indigo-500 cursor-pointer text-sm sm:text-base"
             >
               <option value="seeker">Job Seeker</option>
               <option value="employer">Employer</option>
@@ -112,14 +133,14 @@ const Signup = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3.5 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition disabled:opacity-70"
+            className="w-full py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition disabled:opacity-70 text-sm sm:text-base"
           >
             {loading ? "Creating account..." : "Create Account"}
           </button>
         </form>
 
         {/* FOOTER */}
-        <p className="text-center mt-6 text-gray-700 text-sm">
+        <p className="text-center mt-6 text-gray-700 text-sm sm:text-base leading-relaxed">
           Already have an account?{" "}
           <span
             onClick={() => navigate("/login")}
