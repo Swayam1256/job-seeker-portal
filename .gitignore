@@ -1,12 +1,11 @@
-# Dependencies
+# Node modules
 node_modules/
 
 # Environment variables
 .env
 
-# Build outputs
-dist/
-build/
+# Uploads (IMPORTANT)
+Server/uploads/
 
 # Logs
 npm-debug.log*
