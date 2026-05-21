@@ -45,6 +45,7 @@ app.get("/", (req, res) => {
 
 // routes
 app.use("/api/auth", authRoutes);
+console.log("JOB ROUTES LOADED");
 app.use("/api/jobs", jobRoutes);
 app.use("/api/profile", profileRoutes);
 app.use("/api/applications", applicationRoutes);
