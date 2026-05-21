@@ -16,6 +16,7 @@ const app = express();
 const uploadsDir = path.join(process.cwd(), "uploads");
 const resumesDir = path.join(uploadsDir, "resumes");
 const photosDir = path.join(uploadsDir, "profilePics");
+
 fs.mkdirSync(resumesDir, { recursive: true });
 fs.mkdirSync(photosDir, { recursive: true });
 
@@ -24,11 +25,12 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://your-frontend.vercel.app",
+      "https://job-seeker-portal-six.vercel.app",
     ],
     credentials: true,
   })
 );
+
 app.use(express.json({ limit: "10mb" }));
 
 // serve uploads statically
@@ -44,5 +46,7 @@ app.use("/api/profile", profileRoutes);
 app.use("/api/applications", applicationRoutes);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
 
+app.listen(PORT, () =>
+  console.log(`🚀 Server running on port ${PORT}`)
+);
