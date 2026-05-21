@@ -289,7 +289,7 @@ export default function EmployerDashboard() {
 
                           {app.user?.resume && (
                             <a
-                              href={`http://localhost:5000${app.user.resume}`}
+                              href={`https://job-seeker-portal-ef92.onrender.com${app.user.resume}`}
                               target="_blank"
                               rel="noreferrer"
                               className="text-indigo-600 text-sm underline"

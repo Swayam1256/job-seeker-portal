@@ -19,7 +19,7 @@ export default function SeekerProfile() {
   const { api, setUser, toast } = useAppContext();
 
   // CHANGE THIS AFTER DEPLOYMENT
-  const baseURL = "http://localhost:5000";
+  const baseURL = "https://job-seeker-portal-ef92.onrender.com";
 
   const [mode, setMode] = useState("details");
   const [savedProfile, setSavedProfile] = useState(null);

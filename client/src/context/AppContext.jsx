@@ -19,7 +19,7 @@ export const AppProvider = ({ children }) => {
 
   const api = useMemo(() => {
     const instance = axios.create({
-      baseURL: "http://localhost:5000/api",
+      baseURL: "https://job-seeker-portal-ef92.onrender.com/api",
     });
 
     instance.interceptors.request.use((config) => {
