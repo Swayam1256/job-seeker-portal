@@ -27,10 +27,10 @@ app.use(
       "http://localhost:5173",
       "https://job-seeker-portal-six.vercel.app",
     ],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     credentials: true,
   })
 );
-
 app.use(express.json({ limit: "10mb" }));
 
 // serve uploads statically
