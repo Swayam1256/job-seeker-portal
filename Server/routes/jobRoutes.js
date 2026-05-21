@@ -14,6 +14,10 @@ import { protect, isEmployer, isSeeker } from "../middleware/auth.js";
 
 const router = express.Router();
 
+router.get("/test", (req, res) => {
+  res.send("Jobs route working");
+});
+
 // Public
 router.get("/all", getAllJobs);
 
