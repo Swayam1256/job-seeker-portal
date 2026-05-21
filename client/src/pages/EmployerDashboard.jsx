@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useAppContext } from "../context/AppContext";
-import { PlusCircle, List, Users, Trash2, Briefcase } from "lucide-react";
+import {
+  PlusCircle,
+  List,
+  Users,
+  Trash2,
+  Briefcase,
+} from "lucide-react";
 
 export default function EmployerDashboard() {
   const { api, user, loadingUser, toast } = useAppContext();
@@ -102,11 +108,16 @@ export default function EmployerDashboard() {
   if (loadingUser) return <p className="pt-28 text-center">Loading...</p>;
 
   if (!user || user.role !== "employer") {
-    return <p className="pt-28 text-center text-red-600">Access denied</p>;
+    return (
+      <p className="pt-28 text-center text-red-600">
+        Access denied
+      </p>
+    );
   }
 
   return (
     <div className="pt-24 min-h-screen bg-linear-to-br from-indigo-50 via-white to-purple-50 flex">
+      
       {/* ================= SIDEBAR ================= */}
       <aside className="w-72 fixed left-0 top-24 h-[calc(100vh-6rem)] bg-white/80 backdrop-blur-xl rounded-tr-3xl rounded-br-3xl p-6 shadow-lg border">
         <h3 className="text-xl font-extrabold text-indigo-600 mb-6">
@@ -134,10 +145,13 @@ export default function EmployerDashboard() {
         >
           <List /> Applications
         </button>
+
+        
       </aside>
 
       {/* ================= MAIN ================= */}
       <main className="ml-72 flex-1 p-8 max-w-5xl">
+        
         {/* ================= POST JOB ================= */}
         {active === "post" && (
           <div className="bg-white rounded-3xl shadow-md p-8 border">
