@@ -1,5 +1,7 @@
 💼 Job Seeker Portal (MERN Stack)
 
+Live link 🔗 https://job-seeker-portal-six.vercel.app/
+
 A full-stack Job Seeker & Employer Portal built using the MERN Stack where employers can post jobs and manage applications, and job seekers can browse jobs, apply, and manage their profiles.
 
 🚀 Live Features
